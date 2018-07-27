@@ -48,7 +48,7 @@ function queryDatabase()
 
        // Read all rows from table
      request = new Request(
-          "SELECT * FROM dbo.Persons",
+          "SELECT * FROM dbo.Persons FOR JSON PATH;",
              function(err, rowCount, rows) 
                 {
                     console.log(rowCount + ' row(s) returned');
