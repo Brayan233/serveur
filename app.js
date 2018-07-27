@@ -30,43 +30,50 @@ var config =
 var connection = new Connection(config);
 
 // Attempt to connect and execute queries if connection goes through
-connection.on('connect', function(err) 
-   {
-     if (err) 
-       {
-          console.log(err)
-       }
-    else
-       {
-           queryDatabase()
-       }
-   }
- );
 
-function queryDatabase()
-   { console.log('Reading rows from the Table...');
 
-       // Read all rows from table
-     request = new Request(
-          "SELECT * FROM dbo.Persons FOR JSON PATH;",
-             function(err, rowCount, rows) 
+
+
+
+   app.get('/api/persons', function (req, res) {
+    
+
+
+            connection.on('connect', function(err) 
+            {
+            if (err) 
                 {
-                    console.log(rowCount + ' row(s) returned');
-                    console.log(rows + ' row(s) returned');
-
-                    process.exit();
+                console.log(err)
                 }
-            );
+            else
+                { 
+                    request = new Request(
+                    "SELECT * FROM dbo.Persons FOR JSON PATH;",
+                    function(err, rowCount, rows) 
+                        {
+                            console.log(rowCount + ' row(s) returned');
+                            console.log(rows + ' row(s) returned');
+        
+                            process.exit();
+                        }
+                    );
+        
+                    request.on('row', function(columns) {
+                        columns.forEach(function(column) {
+                            if (column.value === null) {
+                            console.log('NULL');
+                            } else {
+                            res.send(column.value) ;
+                            }
+                        });
+                        });
 
-            request.on('row', function(columns) {
-                columns.forEach(function(column) {
-                  if (column.value === null) {
-                    console.log('NULL');
-                  } else {
-                    var test = column.value;
-                  }
-                });
-              });
-    console.log(test)
-     connection.execSql(request);
-   }
+                        connection.execSql(request);
+                }
+            }
+        );
+
+
+
+
+  })
