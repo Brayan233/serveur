@@ -63,7 +63,9 @@ var connection = new Connection(config);
                             if (column.value === null) {
                             console.log('NULL');
                             } else {
-                            res.send(column.value) ;
+                                console.log(column.value);
+
+                            res.send("hello") ;
                             }
                         });
                         });
