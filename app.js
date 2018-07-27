@@ -52,6 +52,8 @@ function queryDatabase()
              function(err, rowCount, rows) 
                 {
                     console.log(rowCount + ' row(s) returned');
+                    console.log(rows + ' row(s) returned');
+
                     process.exit();
                 }
             );
