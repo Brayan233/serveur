@@ -41,7 +41,6 @@ app.listen(port, function () {
 
 
 
-   app.get('/api/persons', function (req, res) {
     
 
 
@@ -82,4 +81,3 @@ app.listen(port, function () {
 
 
 
-  })
