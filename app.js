@@ -30,7 +30,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
-app.get('/api/test', function (req, res) {
+app.get('/api/persons', function (req, res) {
  
     req.sql("SELECT * FROM dbo.Persons FOR JSON PATH")
         .into(res);
