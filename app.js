@@ -18,12 +18,12 @@ var Request = require('tedious').Request;
 // Create connection to database
 var config = 
    {
-     userName: 'someuser', // update me
-     password: 'somepassword', // update me
-     server: 'edmacasqlserver.database.windows.net', // update me
+     userName: 't2b_Admin', // update me
+     password: 'None#4712', // update me
+     server: 't2b-svr-sql-dev.database.windows.net', // update me
      options: 
         {
-           database: 'somedb' //update me
+           database: 'API_TestDB' //update me
            , encrypt: true
         }
    }
