@@ -24,7 +24,6 @@ app.get('/', function (req, res) {
 })
 
 app.get('/api/test', function (req, res) {
-    res.send('Hello API!');
     connection.on('connect', function(err) 
     {
     if (err) 
@@ -58,6 +57,9 @@ app.get('/api/test', function (req, res) {
             }
     }
 );
+
+res.send('Hello API!');
+
   })
 
 app.listen(port, function () {
