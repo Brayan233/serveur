@@ -22,7 +22,7 @@ var config =
 var connection = new Connection(config);
 
 app.use(function (req, res, next) {
-    req.sql = tediousExpress(req,config);
+    req.sql = tediousExpress(config);
     next();
 });
 
