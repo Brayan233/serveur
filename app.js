@@ -24,7 +24,40 @@ app.get('/', function (req, res) {
 })
 
 app.get('/api/test', function (req, res) {
-    res.send('Hello API!')
+    res.send('Hello API!');
+    connection.on('connect', function(err) 
+    {
+    if (err) 
+        {
+        console.log(err)
+        }
+    else
+        { 
+            request = new Request(
+            "SELECT * FROM dbo.Persons FOR JSON PATH;",
+            function(err, rowCount, rows) 
+                {
+                    console.log(rowCount + ' row(s) returned');
+                    console.log(rows + ' row(s) returned');
+
+                    process.exit();
+                }
+            );
+
+            request.on('row', function(columns) {
+                columns.forEach(function(column) {
+                  if (column.value === null) {
+                    console.log('NULL');
+                  } else {
+                    console.log(column.value);
+                  }
+                });
+              });
+
+              connection.execSql(request);
+            }
+    }
+);
   })
 
 app.listen(port, function () {
@@ -44,39 +77,7 @@ app.listen(port, function () {
     
 
 
-            connection.on('connect', function(err) 
-            {
-            if (err) 
-                {
-                console.log(err)
-                }
-            else
-                { 
-                    request = new Request(
-                    "SELECT * FROM dbo.Persons FOR JSON PATH;",
-                    function(err, rowCount, rows) 
-                        {
-                            console.log(rowCount + ' row(s) returned');
-                            console.log(rows + ' row(s) returned');
-        
-                            process.exit();
-                        }
-                    );
-        
-                    request.on('row', function(columns) {
-                        columns.forEach(function(column) {
-                          if (column.value === null) {
-                            console.log('NULL');
-                          } else {
-                            console.log(column.value);
-                          }
-                        });
-                      });
-
-                      connection.execSql(request);
-                    }
-            }
-        );
+           
 
 
 
