@@ -63,9 +63,10 @@ function queryDatabase()
                   if (column.value === null) {
                     console.log('NULL');
                   } else {
-                    console.log(column.value);
+                    var test = column.value;
                   }
                 });
               });
+    console.log(test)
      connection.execSql(request);
    }
