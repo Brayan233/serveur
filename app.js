@@ -5,6 +5,8 @@ const port = process.env.PORT
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 
+var tediousExpress = require('express4-tedious');
+
 // Create connection to database
 var config = 
    {
@@ -19,48 +21,23 @@ var config =
    }
 var connection = new Connection(config);
 
+app.use(function (req, res, next) {
+    req.sql = tediousExpress(req,connection);
+    next();
+});
+
 app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
 app.get('/api/test', function (req, res) {
-    connection.on('connect', function(err) 
-    {
-    if (err) 
-        {
-        console.log(err)
-        }
-    else
-        { 
-            request = new Request(
-            "SELECT * FROM dbo.Persons FOR JSON PATH;",
-            function(err, rowCount, rows) 
-                {
-                    console.log(rowCount + ' row(s) returned');
-                    console.log(rows + ' row(s) returned');
+ 
+    req.sql("SELECT * FROM dbo.Persons FOR JSON PATH")
+        .into(res);
+ 
+});
 
-                    process.exit();
-                }
-            );
 
-            request.on('row', function(columns) {
-                columns.forEach(function(column) {
-                  if (column.value === null) {
-                    console.log('NULL');
-                  } else {
-                    console.log(column.value);
-                  }
-                });
-              });
-
-              connection.execSql(request);
-            }
-    }
-);
-
-res.send('Hello API!');
-
-  })
 
 app.listen(port, function () {
   console.log('Example app listening on port!'+port)

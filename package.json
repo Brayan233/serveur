@@ -6,6 +6,7 @@
   "dependencies": {
     "async": "^2.6.1",
     "express": "^4.16.3",
+    "express4-tedious": "^0.3.0",
     "tedious": "^2.6.3"
   },
   "engines": {
