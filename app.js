@@ -58,10 +58,14 @@ function queryDatabase()
                 }
             );
 
-     request.on('row', function(columns) {
-        columns.forEach(function(column) {
-            console.log("%s\t%s", column.metadata.colName, column.value);
-         });
-             });
+            request.on('row', function(columns) {
+                columns.forEach(function(column) {
+                  if (column.value === null) {
+                    console.log('NULL');
+                  } else {
+                    console.log(column.value);
+                  }
+                });
+              });
      connection.execSql(request);
    }
