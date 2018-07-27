@@ -48,7 +48,7 @@ function queryDatabase()
 
        // Read all rows from table
      request = new Request(
-          "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
+          "SELECT * FROM dbo.Persons",
              function(err, rowCount, rows) 
                 {
                     console.log(rowCount + ' row(s) returned');
