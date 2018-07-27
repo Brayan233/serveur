@@ -2,20 +2,6 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
-
-app.get('/api/test', function (req, res) {
-    res.send('Hello API!')
-  })
-
-app.listen(port, function () {
-  console.log('Example app listening on port!'+port)
-})
-
-
-
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 
@@ -32,6 +18,22 @@ var config =
         }
    }
 var connection = new Connection(config);
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
+
+app.get('/api/test', function (req, res) {
+    res.send('Hello API!')
+  })
+
+app.listen(port, function () {
+  console.log('Example app listening on port!'+port)
+})
+
+
+
+
 
 // Attempt to connect and execute queries if connection goes through
 
@@ -64,18 +66,16 @@ var connection = new Connection(config);
         
                     request.on('row', function(columns) {
                         columns.forEach(function(column) {
-                            if (column.value === null) {
+                          if (column.value === null) {
                             console.log('NULL');
-                            } else {
-                                console.log(column.value);
-
-                            res.send("hello") ;
-                            }
+                          } else {
+                            console.log(column.value);
+                          }
                         });
-                        });
+                      });
 
-                        connection.execSql(request);
-                }
+                      connection.execSql(request);
+                    }
             }
         );
 
