@@ -21,12 +21,8 @@ var config =
         }
    }
 var connection = new Connection(config);
+app.use(express.static(path.join(__dirname, 'views')));
 
-var engines = require('consolidate');
-
-app.engine('html', engines.mustache);
-app.set('view engine', 'html');
-app.set('views', './views')
 
 
 app.use(function (req, res, next) {
@@ -35,7 +31,7 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', function (req, res) {
-    res.render('index');
+    res.render('index.html');
 })
 
 app.get('/api/persons', function (req, res) {
