@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT
 
+
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 
@@ -21,8 +22,12 @@ var config =
    }
 var connection = new Connection(config);
 
+var engines = require('consolidate');
+
+app.engine('html', engines.mustache);
+app.set('view engine', 'html');
 app.set('views', './views')
-app.set('view engine', 'html')
+
 
 app.use(function (req, res, next) {
     req.sql = tediousExpress(config);
