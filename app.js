@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', function (req, res) {
-  res.send('Hello World!')
+    res.render('index');
 })
 
 app.get('/api/persons', function (req, res) {
