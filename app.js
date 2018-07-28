@@ -21,6 +21,9 @@ var config =
    }
 var connection = new Connection(config);
 
+app.set('views', './views')
+app.set('view engine', 'html')
+
 app.use(function (req, res, next) {
     req.sql = tediousExpress(config);
     next();
