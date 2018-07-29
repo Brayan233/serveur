@@ -116,15 +116,15 @@
 
                 <div class="card text-center">
                   <div class="card-header">
-                    <p>API REST</p>
-                    <p>Base API URL : <a href="https://bserver-apirest.herokuapp.com/api/persons">bserver-apirest.herokuapp.com</a></p>
+                    <p>AWS APIGATEWAY</p>
+                    <p>Base API URL : https://bige36u0h9.execute-api.us-east-1.amazonaws.com/APIREST</p>
                   </div>
                   <div class="card-body">
                     <h5 class="card-title">/api/persons</h5>
                     <p class="card-text">Récupère la liste des personnes (JSON FORMAT)</p>
-                    <a id="btn1" class="btn btn-primary">Lancer la reqûete</a>
+                    <a id="btn4" class="btn btn-primary">Lancer la reqûete</a>
                   </div>
-                  <div class="card-footer text-muted">
+                  <div class="card-footer aws text-muted">
                   </div>
                 </div>
               </div>
@@ -189,6 +189,21 @@ $.ajax({
 }).done(function( data ) {
   console.log(data)
   $( ".azure" ).html( data );
+});
+
+
+});
+
+
+$( "#btn4" ).click(function() {
+
+
+$.ajax({
+  url: "https://bige36u0h9.execute-api.us-east-1.amazonaws.com/APIREST/api/persons",
+
+}).done(function( data ) {
+  console.log(data)
+  $( ".aws" ).html( data );
 });
 
 
