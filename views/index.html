@@ -95,7 +95,7 @@
 
               <div class="card text-center">
                 <div class="card-header">
-                  <p>AZURE APIGATEWAY</p>
+                  <h3>AZURE APIGATEWAY</h3>
                   <p>Base API URL : https://t2b-test.azure-api.net/api-test</p>
                 </div>
                 <div class="card-body">
@@ -184,7 +184,7 @@ $( "#btn3" ).click(function() {
 
 $.ajax({
   url: "https://t2b-test.azure-api.net/api-test/api/persons",
-  headers: { "Cache-Control": "no-cache","Ocp-Apim-Trace": "true","Ocp-Apim-Subscription-Key": "0e7e5f6249c24782bfc41b5d55c4c30f" },
+  headers: { "Ocp-Apim-Trace": "true","Ocp-Apim-Subscription-Key": "0e7e5f6249c24782bfc41b5d55c4c30f" },
 
 }).done(function( data ) {
   $( ".azure" ).html( data );
