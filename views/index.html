@@ -185,6 +185,7 @@ $( "#btn3" ).click(function() {
 $.ajax({
   url: "https://t2b-test.azure-api.net/api-test/api/persons",
   headers: { "Ocp-Apim-Trace": "true","Ocp-Apim-Subscription-Key": "0e7e5f6249c24782bfc41b5d55c4c30f" },
+  crossDomain : true
 
 }).done(function( data ) {
   $( ".azure" ).html( data );
