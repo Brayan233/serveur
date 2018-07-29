@@ -59,7 +59,7 @@
               <p class="card-text">Récupère la liste des personnes (JSON FORMAT)</p>
               <a id="btn1" class="btn btn-primary">Lancer la reqûete</a>
             </div>
-            <div class="card-footer text-muted">
+            <div class="card-footer api-rest text-muted">
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@
                 <p class="card-text">Récupère la liste des personnes (JSON FORMAT)</p>
                 <a id="btn2" class="btn btn-primary">Lancer la reqûete</a>
               </div>
-              <div class="card-footer-wso2 text-muted">
+              <div class="card-footer wso2 text-muted">
               </div>
             </div>
           </div>
@@ -137,7 +137,7 @@
     $( "#btn1" ).click(function() {
 
         $.get( "https://bserver-apirest.herokuapp.com/api/persons", function( data ) {
-            $( ".card-footer" ).html( data );
+            $( ".api-rest" ).html( data );
           });
 
     });
@@ -149,7 +149,7 @@
         url: "https://gateway.api.cloud.wso2.com:443/t/t2b9051/https://bserver-apirest.herokuapp.com/1/api/persons",
         headers: { "Authorization": "Bearer e1c0cbda-e5e6-3b2b-abff-a9f61de561d5" }
       }).done(function( data ) {
-        $( ".card-footer-wso2" ).html( data );
+        $( ".wso2" ).html( data );
       });
 
     });
