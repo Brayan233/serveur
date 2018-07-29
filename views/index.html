@@ -160,7 +160,7 @@
         headers: { "Authorization": "Bearer "+token },
         statusCode: {
           401: function() {
-            alert('TOKEN ACESS EXPIRED')
+            alert('TOKEN ACESS expiré ou incorrect')
           }
         }
       }).done(function( data ) {
