@@ -77,6 +77,12 @@
               <div class="card-body">
                 <h5 class="card-title">/1/api/persons</h5>
                 <p class="card-text">Récupère la liste des personnes (JSON FORMAT)</p>
+                <div class="form-group row">
+                    <label for="example-text-input" class="col- col-form-label">Access Token</label>
+                    <div class="col-8">
+                      <input class="form-control" type="text" value="" id="wso2-token" required>
+                    </div>
+                  </div>
                 <a id="btn2" class="btn btn-primary">Lancer la reqûete</a>
               </div>
               <div class="card-footer wso2 text-muted">
@@ -97,12 +103,7 @@
                 <div class="card-body">
                   <h5 class="card-title">/api/persons</h5>
                   <p class="card-text">Récupère la liste des personnes (JSON FORMAT)</p>
-                  <div class="form-group row">
-                      <label for="example-text-input" class="col-2 col-form-label">Text</label>
-                      <div class="col-10">
-                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                      </div>
-                    </div>
+
                   <a id="btn1" class="btn btn-primary">Lancer la reqûete</a>
                 </div>
                 <div class="card-footer text-muted">
@@ -151,6 +152,9 @@
 
 
     $( "#btn2" ).click(function() {
+
+      alert(document.getElementById('your_input_id').validity.valid)
+
 
       $.ajax({
         url: "https://gateway.api.cloud.wso2.com:443/t/t2b9051/https://bserver-apirest.herokuapp.com/1/api/persons",
