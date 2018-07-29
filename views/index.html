@@ -72,7 +72,7 @@
             <div class="card text-center">
               <div class="card-header">
                 <h3>WSO2 APIGATEWAY</h3>
-                <p>Base API URL : https://gateway.api.cloud.wso2.com/t/t2b9051/https://bserver-apirest.herokuapp.com/</p>
+                <p>Base API URL : https://gateway.api.cloud.wso2.com/t/t2b9051/https://bserver-apirest.herokuapp.com</p>
               </div>
               <div class="card-body">
                 <h5 class="card-title">/1/api/persons</h5>
@@ -95,16 +95,16 @@
 
               <div class="card text-center">
                 <div class="card-header">
-                  <p>API REST</p>
-                  <p>Base API URL : <a href="https://bserver-apirest.herokuapp.com/api/persons">bserver-apirest.herokuapp.com</a></p>
+                  <p>AZURE APIGATEWAY</p>
+                  <p>Base API URL : https://t2b-test.azure-api.net/api-test</p>
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">/api/persons</h5>
                   <p class="card-text">Récupère la liste des personnes (JSON FORMAT)</p>
 
-                  <a id="btn1" class="btn btn-primary">Lancer la reqûete</a>
+                  <a id="btn3" class="btn btn-primary">Lancer la reqûete</a>
                 </div>
-                <div class="card-footer text-muted">
+                <div class="card-footer azure text-muted">
                 </div>
               </div>
             </div>
@@ -151,7 +151,6 @@
 
     $( "#btn2" ).click(function() {
 
-      alert(document.getElementById('wso2-token').validity.valid)
       var token = $('#wso2-token').val();
       
       if(token){
@@ -178,6 +177,21 @@
 
 
     });
+
+
+$( "#btn3" ).click(function() {
+
+
+$.ajax({
+  url: "https://t2b-test.azure-api.net/api-test/api/persons",
+  headers: { "Cache-Control": "no-cache","Ocp-Apim-Trace": "true","Ocp-Apim-Subscription-Key": "0e7e5f6249c24782bfc41b5d55c4c30f" },
+
+}).done(function( data ) {
+  $( ".azure" ).html( data );
+});
+
+
+});
   
   
   
