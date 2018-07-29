@@ -152,11 +152,12 @@
     $( "#btn2" ).click(function() {
 
       alert(document.getElementById('wso2-token').validity.valid)
-
-
+      var token = $('#wso2-token').val();
+      
+      if(token){
       $.ajax({
         url: "https://gateway.api.cloud.wso2.com:443/t/t2b9051/https://bserver-apirest.herokuapp.com/1/api/persons",
-        headers: { "Authorization": "Bearer c405ddd1-b7a3-34b5-89cc-17f9a5efb38e" },
+        headers: { "Authorization": "Bearer "+token },
         statusCode: {
           401: function() {
             alert('TOKEN ACESS EXPIRED')
@@ -165,6 +166,16 @@
       }).done(function( data ) {
         $( ".wso2" ).html( data );
       });
+    }else{
+
+      alert('TOKEN WOS2 obligatoire')
+
+    }
+
+
+
+
+
 
     });
   
