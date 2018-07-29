@@ -203,7 +203,7 @@ $.ajax({
 
 }).done(function( data ) {
   console.log(data)
-  $( ".aws" ).html( data );
+  $( ".aws" ).html( JSON.stringify(data) );
 });
 
 
