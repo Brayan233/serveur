@@ -64,7 +64,7 @@ app.get('/php/azure',function(){
     });
 
 
-    res.send(body)
+    res.json(body)
 
 })
 
