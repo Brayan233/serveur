@@ -3,6 +3,7 @@ const app = express()
 const port = process.env.PORT
 const path = require('path')
 
+var request = require('request');
 
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
@@ -52,6 +53,20 @@ app.get('/api/persons', function (req, res) {
         .into(res);
  
 });
+
+
+app.get('/php/azure',function(){
+
+    request('http://www.google.com', function (error, response, body) {
+      console.log('error:', error); // Print the error if one occurred
+      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      console.log('body:', body); // Print the HTML for the Google homepage.
+    });
+
+
+    res.send(body)
+
+})
 
 
 

@@ -182,7 +182,7 @@
 $( "#btn3" ).click(function() {
 
 
-$.get( "../php/azure-ajax.php", function( data ) {
+$.get( "php/azure", function( data ) {
   $( ".azure" ).html( data );
   alert( "Load was performed." );
 });
