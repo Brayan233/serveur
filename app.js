@@ -7,6 +7,7 @@ var request = require('request');
 
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
+var popup = require('popups');
 
 var tediousExpress = require('express4-tedious');
 
@@ -79,6 +80,7 @@ app.get('/api/azure',function(req,res){
 
 
 
+
 app.get('/api/wso2/:token',function(req,res){
 
     var token = req.params.token;
@@ -94,9 +96,12 @@ app.get('/api/wso2/:token',function(req,res){
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       console.log('body:', body); // Print the HTML for the Google homepage.
       if(response.statusCode == "401"){
-
-        alert('TOKEN ACESS expiré ou incorrect')
+        popup.alert({
+            content: 'TOKEN ACESS expiré ou incorrect!'
+        });
       }
+
+
       res.json(body)
 
     });
