@@ -157,8 +157,16 @@
 
 
       $.get( "api/wso2/"+token, function( data ) {
-        $( ".wso2" ).html( data );
-        alert( "Load was performed." );
+        if(data == "401"){
+          alert( "Token expiré ou invalide !" );
+
+        }else{
+
+                $( ".wso2" ).html( data );
+
+        }
+
+
       });
 
 

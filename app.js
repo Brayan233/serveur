@@ -96,9 +96,7 @@ app.get('/api/wso2/:token',function(req,res){
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       console.log('body:', body); // Print the HTML for the Google homepage.
       if(response.statusCode == "401"){
-        popup.alert({
-            content: 'TOKEN ACESS expiré ou incorrect!'
-        });
+        res.send('401')
       }
 
 
