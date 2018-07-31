@@ -3,7 +3,7 @@ const app = express()
 const port = process.env.PORT
 const path = require('path')
 
-var request = require('request');
+var requesthttp = require('request');
 
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
@@ -64,7 +64,7 @@ app.get('/api/azure',function(req,res){
         }
       };
 
-    request(options, function (error, response, body) {
+      requesthttp(options, function (error, response, body) {
       console.log('error:', error); // Print the error if one occurred
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       console.log('body:', body); // Print the HTML for the Google homepage.
@@ -90,7 +90,7 @@ app.get('/api/wso2/:token',function(req,res){
         }
       };
 
-    request(options, function (error, response, body) {
+      requesthttp(options, function (error, response, body) {
       console.log('error:', error); // Print the error if one occurred
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       console.log('body:', body); // Print the HTML for the Google homepage.
