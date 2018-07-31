@@ -7,7 +7,6 @@ var request = require('request');
 
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
-var popup = require('popups');
 
 var tediousExpress = require('express4-tedious');
 
