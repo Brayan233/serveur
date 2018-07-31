@@ -55,7 +55,7 @@ app.get('/api/persons', function (req, res) {
 });
 
 
-app.get('/php/azure',function(){
+app.get('/php/azure',function(req,res){
 
     request('https://t2b-test.azure-api.net/api-test/api/persons', function (error, response, body) {
       console.log('error:', error); // Print the error if one occurred
