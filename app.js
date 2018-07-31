@@ -57,7 +57,14 @@ app.get('/api/persons', function (req, res) {
 
 app.get('/php/azure',function(req,res){
 
-    request('https://t2b-test.azure-api.net/api-test/api/persons', function (error, response, body) {
+    var options = {
+        url: 'https://t2b-test.azure-api.net/api-test/api/persons',
+        headers: {
+          'Ocp-Apim-Subscription-Key': '0e7e5f6249c24782bfc41b5d55c4c30f'
+        }
+      };
+
+    request(options, function (error, response, body) {
       console.log('error:', error); // Print the error if one occurred
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       console.log('body:', body); // Print the HTML for the Google homepage.
