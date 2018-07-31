@@ -154,23 +154,19 @@
       var token = $('#wso2-token').val();
       
       if(token){
-      $.ajax({
-        url: "https://gateway.api.cloud.wso2.com:443/t/t2b9051/https://bserver-apirest.herokuapp.com/1/api/persons",
-        headers: { "Authorization": "Bearer "+token },
-        statusCode: {
-          401: function() {
-            alert('TOKEN ACESS expiré ou incorrect')
-          }
-        }
-      }).done(function( data ) {
-        $( ".wso2" ).html( data );
+
+
+      $.get( "api/wso2/"+token, function( data ) {
+        $( ".azure" ).html( data );
+        alert( "Load was performed." );
       });
-    }else{
 
-      alert('TOKEN WOS2 obligatoire')
 
-    }
+      }else{
 
+        alert('TOKEN WOS2 obligatoire')
+
+      }
 
 
 
@@ -182,7 +178,7 @@
 $( "#btn3" ).click(function() {
 
 
-$.get( "php/azure", function( data ) {
+$.get( "api/azure", function( data ) {
   $( ".azure" ).html( data );
   alert( "Load was performed." );
 });

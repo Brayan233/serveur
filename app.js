@@ -55,7 +55,7 @@ app.get('/api/persons', function (req, res) {
 });
 
 
-app.get('/php/azure',function(req,res){
+app.get('/api/azure',function(req,res){
 
     var options = {
         url: 'https://t2b-test.azure-api.net/api-test/api/persons',
@@ -68,6 +68,35 @@ app.get('/php/azure',function(req,res){
       console.log('error:', error); // Print the error if one occurred
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       console.log('body:', body); // Print the HTML for the Google homepage.
+
+      res.json(body)
+
+    });
+
+
+
+})
+
+
+
+app.get('/api/wso2/:token',function(req,res){
+
+    var token = req.params.token;
+    var options = {
+        url: 'https://gateway.api.cloud.wso2.com:443/t/t2b9051/https://bserver-apirest.herokuapp.com/1/api/persons',
+        headers: {
+          'Authorization': 'Bearer '+token
+        }
+      };
+
+    request(options, function (error, response, body) {
+      console.log('error:', error); // Print the error if one occurred
+      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      console.log('body:', body); // Print the HTML for the Google homepage.
+      if(response.statusCode == "401"){
+
+        alert('TOKEN ACESS expiré ou incorrect')
+      }
       res.json(body)
 
     });
