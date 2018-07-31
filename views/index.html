@@ -166,7 +166,6 @@
 
         }
 
-
       });
 
 
@@ -188,7 +187,6 @@ $( "#btn3" ).click(function() {
 
 $.get( "api/azure", function( data ) {
   $( ".azure" ).html( data );
-  alert( "Load was performed." );
 });
 
 
@@ -199,14 +197,10 @@ $.get( "api/azure", function( data ) {
 
 $( "#btn4" ).click(function() {
 
-
-$.ajax({
-  url: "https://bige36u0h9.execute-api.us-east-1.amazonaws.com/APIREST/api/persons",
-
-}).done(function( data ) {
-  console.log(data)
-  $( ".aws" ).html( JSON.stringify(data) );
+  $.get( "api/aws", function( data ) {
+  $( ".aws" ).html( data );
 });
+
 
 
 });

@@ -77,6 +77,21 @@ app.get('/api/azure',function(req,res){
 
 })
 
+app.get('/api/aws',function(req,res){
+
+
+      requesthttp("https://bige36u0h9.execute-api.us-east-1.amazonaws.com/APIREST/api/persons", function (error, response, body) {
+      console.log('error:', error); // Print the error if one occurred
+      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      console.log('body:', body); // Print the HTML for the Google homepage.
+
+      res.json(body)
+
+    });
+
+
+
+})
 
 
 
