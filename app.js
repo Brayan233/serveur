@@ -83,6 +83,7 @@ app.get('/api/azure',function(req,res){
 app.get('/api/wso2/:token',function(req,res){
 
     var token = req.params.token;
+    console.log("token:",token)
     var options = {
         url: 'https://gateway.api.cloud.wso2.com:443/t/t2b9051/https://bserver-apirest.herokuapp.com/1/api/persons',
         headers: {
