@@ -95,9 +95,23 @@ app.get('/api/aws',function(req,res){
 
 
 
-app.get('/api/wso2/:token',function(req,res){
+app.get('/api/wso2',function(req,res){
 
     var token = req.params.token;
+
+request.post({url:'https://gateway.api.cloud.wso2.com:443/token', form: {grant_type:'client_credentials'},auth: {
+    'user': 'username',
+    'pass': 'password'  }}, function(err,httpResponse,body){
+
+      console.log('WSO2:', body); // Print the HTML for the Google homepage.
+
+
+
+
+})
+
+
+
     console.log("token:",token)
     var options = {
         url: 'https://gateway.api.cloud.wso2.com:443/t/t2b9051/https://bserver-apirest.herokuapp.com/1/api/persons',

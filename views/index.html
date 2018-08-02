@@ -151,29 +151,16 @@
 
     $( "#btn2" ).click(function() {
 
-      var token = $('#wso2-token').val();
       
-      if(token){
 
 
-      $.get( "api/wso2/"+token, function( data ) {
-        if(data == "401"){
-          alert( "Token expiré ou invalide !" );
-
-        }else{
-
+      $.get( "api/wso2", function( data ) {
                 $( ".wso2" ).html( data );
-
-        }
 
       });
 
 
-      }else{
-
-        alert('TOKEN WOS2 obligatoire')
-
-      }
+   
 
 
 
