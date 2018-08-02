@@ -117,10 +117,7 @@ requesthttp.post({url:'https://gateway.api.cloud.wso2.com:443/token', form: {gra
 
 })
 
-
-
-    console.log("token:",token)
-    var options = {
+/*    var options = {
         url: 'https://gateway.api.cloud.wso2.com:443/t/t2b9051/https://bserver-apirest.herokuapp.com/1/api/persons',
         headers: {
           'Authorization': 'Bearer '+token
@@ -138,7 +135,7 @@ requesthttp.post({url:'https://gateway.api.cloud.wso2.com:443/token', form: {gra
 
       res.json(body)
 
-    });
+    });*/
 
 
 
