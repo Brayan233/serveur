@@ -110,8 +110,25 @@ requesthttp.post({url:'https://gateway.api.cloud.wso2.com:443/token', form: {gra
     'pass': 'vQuqmk6woGfx53ftXdtHbhm7EPga'  }}, function(err,httpResponse,body){
 
       console.log('WSO2 bodu:', body); // Print the HTML for the Google homepage.
-      var test = JSON.parse(body);
-      console.log('WSO2 token:', test.access_token); // Print the HTML for the Google homepage.
+      let obj = JSON.parse(body);
+      let token = obj.access_token
+
+
+      let options = {
+        url: 'https://gateway.api.cloud.wso2.com:443/t/t2b9051/https://bserver-apirest.herokuapp.com/1/api/persons',
+        headers: {
+          'Authorization': 'Bearer '+token
+        }
+      };
+
+      requesthttp(options, function (error, response, body) {
+      console.log('error:', error); // Print the error if one occurred
+      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      console.log('body:', body); // Print the HTML for the Google homepage.
+    
+      res.json(body)
+
+    });*/
 
 
 
