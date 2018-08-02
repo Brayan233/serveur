@@ -34,7 +34,7 @@ var allowCrossDomain = function(req, res, next) {
     else 
         next();
 }
-pp.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }))
  
 // parse application/json
 app.use(bodyParser.json())
