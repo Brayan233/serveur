@@ -99,7 +99,7 @@ app.get('/api/wso2',function(req,res){
 
     var token = req.params.token;
 
-request.post({url:'https://gateway.api.cloud.wso2.com:443/token', form: {grant_type:'client_credentials'},auth: {
+requesthttp.post({url:'https://gateway.api.cloud.wso2.com:443/token', form: {grant_type:'client_credentials'},auth: {
     'user': 'username',
     'pass': 'password'  }}, function(err,httpResponse,body){
 
