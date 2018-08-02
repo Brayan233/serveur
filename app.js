@@ -128,7 +128,7 @@ requesthttp.post({url:'https://gateway.api.cloud.wso2.com:443/token', form: {gra
     
       res.json(body)
 
-    });*/
+    });
 
 
 
