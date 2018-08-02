@@ -9,6 +9,7 @@ var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 
 var tediousExpress = require('express4-tedious');
+var bodyParser = require('body-parser')
 
 // Create connection to database
 var config = 
@@ -33,6 +34,11 @@ var allowCrossDomain = function(req, res, next) {
     else 
         next();
 }
+pp.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
+
 app.use(express.static(path.join(__dirname, 'views')));
 
 app.use(allowCrossDomain);

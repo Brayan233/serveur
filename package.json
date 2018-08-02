@@ -12,7 +12,8 @@
     "popups": "^1.1.3",
     "request": "^2.87.0",
     "startbootstrap-bare": "^4.1.3",
-    "tedious": "^2.6.3"
+    "tedious": "^2.6.3",
+    "body-parser":"^1.18.3"
   },
   "engines": {
     "node": "9.8.0",
