@@ -103,7 +103,7 @@ requesthttp.post({url:'https://gateway.api.cloud.wso2.com:443/token', form: {gra
     'user': 'HoijFYixmsWDZYOG80BiIKCh1Uca',
     'pass': 'vQuqmk6woGfx53ftXdtHbhm7EPga'  }}, function(err,httpResponse,body){
 
-      console.log('WSO2:', body); // Print the HTML for the Google homepage.
+      console.log('WSO2:', body.access_token); // Print the HTML for the Google homepage.
 
 
 
