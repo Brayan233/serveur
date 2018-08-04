@@ -147,7 +147,11 @@ app.get('/api/mulesoft',function(req,res){
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       console.log('body:', body); // Print the HTML for the Google homepage.
 
-      res.json(body)
+
+      let obj = JSON.parse(body);
+      let persons = obj.JSON_F52E2B61-18A1-11d1-B105-00805F49916B
+      res.json(persons)
+
 
     });
 
