@@ -149,7 +149,7 @@ app.get('/api/mulesoft',function(req,res){
 
 
       let obj = JSON.parse(body);
-      let persons = obj.JSON_F52E2B61-18A1-11d1-B105-00805F49916B
+      let persons = obj["JSON_F52E2B61-18A1-11d1-B105-00805F49916B"]
       res.json(persons)
 
 
