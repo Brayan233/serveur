@@ -134,29 +134,30 @@ requesthttp.post({url:'https://gateway.api.cloud.wso2.com:443/token', form: {gra
 
 })
 
-/*    var options = {
-        url: 'https://gateway.api.cloud.wso2.com:443/t/t2b9051/https://bserver-apirest.herokuapp.com/1/api/persons',
-        headers: {
-          'Authorization': 'Bearer '+token
-        }
-      };
 
-      requesthttp(options, function (error, response, body) {
+})
+
+
+
+app.get('/api/mulesoft',function(req,res){
+
+
+      requesthttp("http://t2b-api.us-e2.cloudhub.io/api/persons", function (error, response, body) {
       console.log('error:', error); // Print the error if one occurred
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       console.log('body:', body); // Print the HTML for the Google homepage.
-      if(response.statusCode == "401"){
-        res.send('401')
-      }
-
 
       res.json(body)
 
-    });*/
+    });
 
 
 
 })
+
+
+
+
 
 
 

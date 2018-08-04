@@ -126,6 +126,26 @@
                 </div>
               </div>
             </div>
+
+                      <div class="row">
+              <div class="col-lg-12 text-center">
+                  <div class="mt-5"></div>
+
+                <div class="card text-center">
+                  <div class="card-header">
+                    <h3>MULESOFT APIGATEWAY</h3>
+                    <p>Base API URL : http://t2b-api.us-e2.cloudhub.io/api/persons</p>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">/api/persons</h5>
+                    <p class="card-text">Récupère la liste des personnes (JSON FORMAT)</p>
+                    <a id="btn5" class="btn btn-primary">Lancer la reqûete</a>
+                  </div>
+                  <div class="card-footer aws text-muted">
+                  </div>
+                </div>
+              </div>
+            </div>
     </div>
 
     <!-- Bootstrap core JavaScript -->
@@ -189,6 +209,16 @@ $( "#btn4" ).click(function() {
 
 });
   
+
+  $( "#btn5" ).click(function() {
+
+  $.get( "api/mulesoft", function( data ) {
+  $( ".mulesoft" ).html( data );
+});
+
+
+
+});
   
   
   
